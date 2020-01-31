@@ -12,7 +12,7 @@ export class PersonService {
   constructor(private http: HttpClient) { }
 
   getPerson(): Observable<Person> {
-    return this.http.get<Person>('https://person.free.beeceptor.com/person')
+    return this.http.get<Person>('http://www.mocky.io/v2/5e34618c3000005b00d9646f')
       .pipe(map(response => {
         console.log(response);
         return response;

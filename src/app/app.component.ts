@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Person} from './person';
 import {PersonService} from './person.service';
-import {map} from 'rxjs/operators';
+import {CompanyService} from './company.service';
+import {Company} from './company';
 
 @Component({
   selector: 'app-root',
@@ -11,10 +12,15 @@ import {map} from 'rxjs/operators';
 export class AppComponent implements OnInit {
   title = 'nested-assign-example';
 
-  constructor(private appService: PersonService) {}
-
+  company = new Company();
+  companyAssign = new Company();
   paulo = new Person();
   pauloAssign = new Person();
+
+  constructor(private appService: PersonService,
+              private companyService: CompanyService
+  ) {
+  }
 
   ngOnInit(): void {
     this.appService.getPerson()
@@ -26,6 +32,17 @@ export class AppComponent implements OnInit {
     this.appService.getPersonAssign()
       .subscribe(person => {
         this.pauloAssign = person;
+      }, (error: any) => alert(error));
+
+
+    this.companyService.getCompany()
+      .subscribe(company => {
+        this.company = company;
+      }, (error: any) => alert(error));
+
+    this.companyService.getCompanyAssign()
+      .subscribe(company => {
+        this.companyAssign = company;
       }, (error: any) => alert(error));
   }
 }

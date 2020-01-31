@@ -1,4 +1,3 @@
-
 <h1>Person Direct</h1>
 <h2>{{paulo.firstName}} </h2>
 <h2>{{paulo.lastName}} </h2>
@@ -9,5 +8,20 @@
 <h2>{{pauloAssign.firstName}} </h2>
 <h2>{{pauloAssign.lastName}} </h2>
 <h2>{{pauloAssign.fullName}} </h2>
+
+
+<h1>Company Direct</h1>
+<h2>{{company.name}} </h2>
+<li *ngFor="let person of company.people">
+  <span class="badge">{{person.firstName}}</span> {{person.lastName}} - {{person.fullName}}
+</li>
+
+
+<h1>Company Assign</h1>
+<h2>{{companyAssign.name}} </h2>
+<li *ngFor="let person of companyAssign.people">
+  <span class="badge">{{person.firstName}}</span> {{person.lastName}} - {{person.fullName}}
+</li>
+
 
 
